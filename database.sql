@@ -11,3 +11,5 @@ CREATE TABLE expressAPIfireball (
   Calculated Total Impact Energy (kt) integer,
   id serial primary key
 );
+
+ /*/ mysql seed file

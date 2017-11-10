@@ -23,15 +23,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 
-
 // define routes ----  with .get we render index.jade and send to browser 
 router.get('/', function(req, res) {
     res.send('Welcome to the NASA Fireball API Page!');
     res.json({ message: 'hooray! welcome to my first api!' });
     res.end(); // end request when done
 });
-
-
 
 
 router.route('./api/') // api call to NASA fireball API
@@ -48,13 +45,11 @@ router.route('./api/') // api call to NASA fireball API
                 res.json(body);
 
                 alert('Retrieved ' + body.length + ' records from the dataset!');
-                console.log(data);
+                console.log(body);
                 res.end(); // end request when done
             }
         });
     });
-
-
 
 
 // with .put we can add/update response data through using specific params
@@ -63,15 +58,12 @@ router.put('/api/:param', function(req, res) {
 });
 
 
-
 // mysql query for API 1st attempt
 router.post('/', function(req, res) {
   var sql = 'SELECT * FROM expressAPIfireball';
   // Retrieve the data to insert from the POST body
   var data = [
-    req.body.description,
-    req.body.filepath,
-    req.body.album_id
+    req.body.signature
   ];
   
   db.query(sql, data, function(err, result) {
