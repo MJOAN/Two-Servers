@@ -1,0 +1,30 @@
+{
+  "name": "two-servers",
+  "version": "1.0.0",
+  "description": "Express NASA Fireball API",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "TEST"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MJOAN/Two-Servers.git"
+  },
+  "keywords": [
+    "express",
+    "nasa",
+    "fireball",
+    "api"
+  ],
+  "author": "MJOAN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MJOAN/Two-Servers/issues"
+  },
+  "homepage": "https://github.com/MJOAN/Two-Servers#readme"
+}
