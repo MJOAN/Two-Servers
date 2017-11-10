@@ -66,15 +66,18 @@ router.post('/', function(req, res) {
         req.body.signature
     ];
 
-    db.query(sql, data, function(err, result) {
+    db.query(sql, data, function(err, res) {
       if (err) {
-          // We shield our clients from internal errors, but log them
-          console.error(err);
-          res.statusCode = 500;
-          return res.json({
-              errors: ['Failed to upload data']
-          });
-      }
+        console.error(err);
+        res.statusCode = 500;
+        return res.json({
+        errors: ['Failed to upload data']
+      })
+      else {
+          console.log(res)
+        }
+      };
+  
 
 
 app.listen(8080, function() { // use app.listen || server.listen
