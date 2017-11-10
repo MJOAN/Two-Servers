@@ -13,5 +13,3 @@ CREATE TABLE fireball (
   totalRadEngyJ INTEGER,
   caldTImpEngyKT INTEGER
 );
-
- /*/ mysql seed file
