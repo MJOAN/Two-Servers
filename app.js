@@ -60,25 +60,25 @@ router.put('/api/:param', function(req, res) {
 
 // mysql query for API 1st attempt
 router.post('/', function(req, res) {
-  var sql = 'SELECT * FROM expressAPIfireball';
-  // Retrieve the data to insert from the POST body
-  var data = [
-    req.body.signature
-  ];
-  
-  db.query(sql, data, function(err, result) {
-    if (err) {
-      // We shield our clients from internal errors, but log them
-      console.error(err);
-      res.statusCode = 500;
-      return res.json({
-        errors: ['Failed to upload data']
-      });
-    }
+    var sql = 'SELECT * FROM expressAPIfireball';
+    // Retrieve the data to insert from the POST body
+    var data = [
+        req.body.signature
+    ];
+
+    db.query(sql, data, function(err, result) {
+      if (err) {
+          // We shield our clients from internal errors, but log them
+          console.error(err);
+          res.statusCode = 500;
+          return res.json({
+              errors: ['Failed to upload data']
+          });
+      }
 
 
 app.listen(8080, function() { // use app.listen || server.listen
-    console.log("Magic is happening while our server listens on: http://localhost:" + PORT);
+  console.log("Magic is happening while our server listens on: http://localhost:" + PORT);
 })
 
 // export modules for router, app and database
