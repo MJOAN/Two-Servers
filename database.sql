@@ -1,15 +1,17 @@
-CREATE TABLE expressAPIfireball (
-  Peak Brightness Date/Time (UT) integer,
-  Latitude (deg.) integer,
-  Longitude (deg.) integer,
-  Altitude (km) integer,
-  Velocity (km/s) integer,
-  vx integer,
-  vy integer,
-  vz integer,
-  Total Radiated Energy (J) integer,
-  Calculated Total Impact Energy (kt) integer,
-  id serial primary key
+CREATE DATABASE expressAPIfireball;
+USE expressAPIfireball;
+
+CREATE TABLE fireball (
+  peakBrightness INTEGER, 
+  latitudeDegrees INTEGER,
+  longitudeDegrees INTEGER,
+  altitudeKilometers INTEGER,
+  velocityKMS INTEGER NULL,
+  velxKMS INTEGER NULL,
+  velyKMS INTEGER NULL,
+  velzKMS INTEGER NULL,
+  totalRadEngyJ INTEGER,
+  caldTImpEngyKT INTEGER
 );
 
  /*/ mysql seed file
