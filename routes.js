@@ -1,14 +1,15 @@
-var http = require("http");
-var express = require("express");
-var path = require('path');
+const http = require("http");
+const express = require("express");
+const path = require('path');
+const mysql = require("mysql");
+const bodyParser = require("body-parser"); // express parser for body data
+
 var api = require('/api');
-var mysql = require("mysql");
-var bodyParser = require("body-parser"); // express parser for body data
+var routes = require('/routes.js');
+var server = require('/server.js'); // our database connection file
 
-var app = express();
-var router = express.Router();
-
-var db = require('/db.js'); // our database connection file
+const app = express();
+const router = express.Router();
 
 const PORT = process.env.PORT || 8080;
 
@@ -17,11 +18,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // use middleware
-app.use(router);
+app.use(router); // using our router express()
+app.use('/', apps); // using our app.js file in path
+
+app.use(express.static(path.join(__dirname, 'assets')));
 app.use(bodyParser.json({ type: 'application/json' }));
 app.use(bodyParser.urlencoded({ extended: false }));
-
-
 
 // define routes ----  with .get we render index.jade and send to browser 
 router.get('/', function(req, res) {
@@ -30,8 +32,8 @@ router.get('/', function(req, res) {
     res.end(); // end request when done
 });
 
-
-router.route('./api/') // api call to NASA fireball API
+// api call to NASA fireball API
+router.route('./api/') 
     .get(function(req, res) {
         request({
             url: "https://data.nasa.gov/resource/2af2-m89m.json",
@@ -52,10 +54,13 @@ router.route('./api/') // api call to NASA fireball API
     });
 
 
-// with .put we can add/update response data through using specific params
-router.put('/api/:param', function(req, res) {
-    res.send('Got a PUT request for new params')
-});
+// get routes to sql! 
+router.get('/api', function(req, res) {
+    connection.query('SELECT * FROM expressAPIfireball', function(err, data) {
+        if (err) throw err;
+        res.send(data);
+    })
+})
 
 
 // mysql query for API 1st attempt
@@ -66,25 +71,36 @@ router.post('/', function(req, res) {
         req.body.signature
     ];
 
-    db.query(sql, data, function(err, res) {
+    console.log(req.body);
+    let brighness = req.body.signature[0];
+    let velocity = req.body.signature[0];
+    let dateTime = req.body.signature[0];
+
+    server.query(sql, data, function(err, res) {
       if (err) {
         console.error(err);
         res.statusCode = 500;
         return res.json({
         errors: ['Failed to upload data']
       })
-      else {
-          console.log(res)
-        }
-      };
+        res.redirect('/');
+    };
   
+// with .put we can add/update response data through using specific params
+router.put('/api/:param', function(req, res) {
+    res.send('Got a PUT request for new params')
+});
 
 
-app.listen(8080, function() { // use app.listen || server.listen
-  console.log("Magic is happening while our server listens on: http://localhost:" + PORT);
+app.listen(process.env.PORT || 8080, function() { // use app.listen || server.listen
+    process.env.PORT === undefined ? 
+    console.log('Magic is not happening and server is not listening') : 
+    console.log("Magic is happening while our server is listening: http://localhost:" + 
+        process.env.PORT);
 })
 
 // export modules for router, app and database
 module.exports = router;
 module.exports = app;
-module.exports = db;
+module.exports = server;
+
