@@ -18,7 +18,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "TEST"
+    "test": "TEST",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
