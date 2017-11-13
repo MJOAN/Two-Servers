@@ -1,4 +1,4 @@
-"Peak Brightness Date/Time (UT)","Latitude (deg.)","Longitude (deg.)","Altitude (km)","Velocity (km/s)","vx","vy","vz","Total Radiated Energy (J)","Calculated Total Impact Energy (kt)"
+"Peak BrightnessDateTime","Latitude deg","Longitude deg","Altitude_km","Velocity_km/s","vx","vy","vz","Total Radiated Energy_Joules”,”Calculated Total Impact Energy_kt”
 "2017-10-26 22:05:35","21.3S","177.6E","42.5","","","","","55.8e10","1.4"
 "2017-10-23 15:31:23","28.8N","44.6E","35.4","16.7","-5.7","-10.7","-11.5","2.4e10","0.086"
 "2017-10-15 04:33:16","65.2S","128.2E","24.1","15.9","9.5","-8.3","9.7","3.3e10","0.11"
