@@ -2,7 +2,11 @@
   "name": "two-servers",
   "version": "1.0.0",
   "description": "Express NASA Fireball API",
-  "main": "app.js",
+    "engines": {
+    "node": "8.9.1",
+    "npm": "5.5.1"
+  },
+  "main": "server.js",
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
