@@ -1,51 +1,44 @@
-/*var mysql = require("mysql");
+// ==============================================================================
+// DEPENDENCIES
+// Series of npm packages that we will use to give our server useful functionality
+// ==============================================================================
 
-var connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "",
-  database: "expressAPIfireball"
-});
+const express = require("express");
+const bodyParser = require("body-parser");
+const Twitter = require("twitter");
+// const connection = require("./connection");
 
-connection.connect(function(err) {
-  if (err) throw err;
-  console.log("connected as id " + connection.threadId);
-  connection.end();
-});
+// ==============================================================================
+// EXPRESS CONFIGURATION
+// This sets up the basic properties for our express server
+// ==============================================================================
 
-// var routes = require('/routes');
-// var server = require('/server.js'); // our database connection file
+const app = express();
 
-// use middleware
-// app.use(router); // using our router express()
-// app.use('/'); 
-// configure app // jade is express default view engine aka part of MVC 
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
+// Sets an initial port. We"ll use this later in our listener
+const PORT = process.env.PORT || 3306;
 
-// use middleware
-app.use(router); // using our router express()
-app.use('/'); // using our express routes.js file in path
-
-app.use(express.static(path.join(__dirname, 'main')));
-app.use(bodyParser.json({ type: 'application/json' }));
+// Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-// export modules for router, app and database
-module.exports = router;
-module.exports = app;
-// module.exports = server;
+// ================================================================================
+// ROUTER
+// The below points our server to a series of "route" files.
+// These routes give our server a "map" of how to respond when users visit or request data from various URLs.
+// ================================================================================
+
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
 
-/*req.open("GET", url, true) 
-  // res.setHeader('Content-Type', 'text/plain; charset=utf-8')
-  if (!error && response.statusCode == 200) {
-      res.send(body);   
-      res.json(body);
-      alert('Retrieved ' + body.length + ' records from the dataset!');
-      console.log(JSON.stringify(body, null, ' '));
-      // res.end(); // end request when done*/
 
-// });
+// =============================================================================
+// LISTENER
+// The below code effectively "starts" our server
+// =============================================================================
+
+app.listen(PORT, function() {
+  console.log("App listening on PORT: " + PORT);
+});
 

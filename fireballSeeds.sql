@@ -26,3 +26,13 @@ CREATE TABLE fireballCSV (
   totalRadEngyJ INTEGER (100),
   caldTImpEngyKT INTEGER (100)
 );
+
+CREATE TABLE emails
+(
+  id int NOT NULL AUTO_INCREMENT,
+  email varchar(255) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+
+INSERT INTO emails (email) VALUES ('sally_strong@gmail.com');
