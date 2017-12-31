@@ -1,7 +1,7 @@
 # Two-Servers
 
 
-![screenshot](Screen Shot 2017-11-19 at 2.47.26 PM.png)
+![screenshot](screenshot1.png)
 
 # **Instructions to Build an Express Application:**
 
