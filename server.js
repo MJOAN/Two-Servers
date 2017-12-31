@@ -6,12 +6,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const Twitter = require("twitter");
-// const connection = require("./connection");
-
-// ==============================================================================
-// EXPRESS CONFIGURATION
-// This sets up the basic properties for our express server
-// ==============================================================================
+const connection = require("./connection");
 
 const app = express();
 
@@ -31,12 +26,6 @@ app.use(bodyParser.json());
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
-
-
-// =============================================================================
-// LISTENER
-// The below code effectively "starts" our server
-// =============================================================================
 
 app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);

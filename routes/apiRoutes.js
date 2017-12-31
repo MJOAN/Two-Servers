@@ -7,6 +7,7 @@ const mysql = require("mysql");
 
 const connection = mysql.createConnection({
   host: "localhost",
+  port: 3306,
   user: "root",
   password: "",
   database: "expressAPIfireball"
@@ -17,20 +18,12 @@ connection.connect(function(err) {
     console.error("error connecting: " + err.stack);
     return;
   }
-
   console.log("connected as id " + connection.threadId);
 });
 
-// ===============================================================================
-// ROUTING
-// ===============================================================================
+
 
 module.exports = function(app) {
-        // API GET Requests
-        // Below code handles when users "visit" a page.
-        // In each of the below cases when a user visits a link
-        // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
-        // ---------------------------------------------------------------------------
 
     app.get("/api", function(req, res) {
         request("https://ssd-api.jpl.nasa.gov/fireball.api", function(error, response, body) {
@@ -55,20 +48,16 @@ module.exports = function(app) {
 
     app.post("/api/mysql/email", function(req, res) {
 
-        console.log(req.body);
-        var value = req.body;
-        var sql = "INSERT INTO emails SET ?";
+        console.log(req.body.email);
+        var email = req.body.email;
 
-        connection.query(sql, value, function(error, result) {
-            if (error) {
-                console.log(error);
-            } else {
-                console.log(result);
-                console.log("Email submitted and updated: " + result.affectedRows);
-                res.send('User added to database with ID: ' + result);
-                // res.send({ email: JSON.stringify({response:'json'}) });
-                // res.send(email);
-                // res.json({ email: result });
+    connection.query("INSERT INTO emails (email) VALUES (?)", [req.body.email], function(error, result) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log(result);
+            console.log("Email submitted and updated: " + result.affectedRows + " affectedRows");
+            res.send("Your email: " + email + "has been successfully added to database!");
             };
         });
      });
@@ -97,6 +86,6 @@ module.exports = function(app) {
                 res.json(tweets)
             }
         });
-    });  // end twitter feed
+    });  // end 
 
-}; // module app
+}; // end app

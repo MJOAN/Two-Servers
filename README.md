@@ -7,6 +7,7 @@
 - Be sure to have structure and information in sql files
 
 # **Table Column Descriptions For NASA Fireball API Fireball***
+![screenshot sequelpro code](screenshot1.png)
 
 # **Peak Brightness Date/Time (UT)**
 The date and time in UT (Universal Time) of this event's peak brightness.
