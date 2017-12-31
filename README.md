@@ -1,5 +1,8 @@
 # Two-Servers
 
+
+![screenshot](screenshot1.png)
+
 # **Instructions to Build an Express Application:**
 
 - Create an API that will return 3 different pieces of data based on 3 different routes. All data should be in JSON format
