@@ -1,10 +1,10 @@
 {
-  "name": "two-servers",
-  "version": "1.0.0",
+  "name": "nasa-fireball-api",
+  "version": "1.2.0",
   "description": "Express NASA Fireball API",
-    "engines": {
-    "node": "8.9.1",
-    "npm": "5.5.1"
+  "engines": {
+    "node": "9.3.0",
+    "npm": "5.6.0"
   },
   "main": "server.js",
   "dependencies": {
@@ -34,7 +34,7 @@
     "api"
   ],
   "author": "MJOAN",
-  "license": "ISC",
+  "license": "MIT ",
   "bugs": {
     "url": "https://github.com/MJOAN/Two-Servers/issues"
   },
