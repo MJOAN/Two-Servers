@@ -15,7 +15,6 @@
 # **Peak Brightness Date/Time (UT)**
 The date and time in UT (Universal Time) of this event's peak brightness.
 
-
 # **Latitude (deg.)**
 Geodetic latitude in degrees north (N) or south (S) of the equator for this event.
 
