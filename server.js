@@ -14,8 +14,6 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // Static directory
 app.use(express.static("public"));
 
-
-
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
