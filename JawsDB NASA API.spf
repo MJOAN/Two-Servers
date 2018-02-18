@@ -87,6 +87,18 @@
 	<array>
 		<string>CREATE TABLE `fireballCSV` (
   `peakBrightness` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+  `latitudeDegrees` float NOT NULL,
+  `longitudeDegrees` float NOT NULL,
+  `altitudeKilometers` float NOT NULL,
+  `velocityKMS` float NOT NULL,
+  `velxKMS` float NOT NULL,
+  `velyKMS` float NOT NULL,
+  `velzKMS` float NOT NULL,
+  `totalRadEngyJ` float NOT NULL,
+  `caldTImpEngyKT` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</string>
+		<string>CREATE TABLE `fireballCSV` (
+  `peakBrightness` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
   `latitudeDegrees` float DEFAULT NULL,
   `longitudeDegrees` float DEFAULT NULL,
   `altitudeKilometers` float DEFAULT NULL,
@@ -210,8 +222,6 @@ VALUES ('mosswall', 'Moss Wall', 'Moss Walls are an opportunity to have vertical
     email varchar(255),
     password TEXT NOT NULL
 )</string>
-		<string>INSERT INTO users (`id`, `email`, `password`) 
-VALUES (1, 'richard@prince.com', 'asdfsa3')</string>
 	</array>
 	<key>rdbms_type</key>
 	<string>mysql</string>
