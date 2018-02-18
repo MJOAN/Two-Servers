@@ -52,7 +52,7 @@ const connection = require("../connection");
         } else {
             console.log(result);
             console.log("Email submitted and updated: " + result.affectedRows + " affectedRows");
-            res.render("Your email: " + email + "has been successfully added to database!");
+            res.json("Thank you for signing up! Your email: " + email + "has been successfully added to database!");
             };
         });
      });
