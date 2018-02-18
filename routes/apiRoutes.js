@@ -5,21 +5,10 @@ const path = require("path");
 const express = require("express");
 const mysql = require("mysql");
 
-const connection = mysql.createConnection({
-  host: "127.0.0.1" || "h40lg7qyub2umdvb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-  port: 3306,
-  user: "root" || "o5dll7sz3c8u8p43",
-  password: "" || "mk9we0ov4eol9d77",
-  database: "expressAPIfireball" || "kem691jk4ty7omy4"
-});
-
-connection.connect(function(err, connection) {
-  if (err) throw err;
-  console.log("connection successful using id: " + connection.threadId);
-});
-
 
 module.exports = function(app) {
+
+const connection = require("../connection");
 
     app.get("/api", function(req, res) {
         request("https://ssd-api.jpl.nasa.gov/fireball.api", function(error, response, body) {
