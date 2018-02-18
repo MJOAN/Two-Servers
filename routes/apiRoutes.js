@@ -20,6 +20,16 @@ const connection = require("../connection");
         });
     });
 
+/*    app.get("/api/search?q={q}", function(req, res) {
+        request("https://images-api.nasa.gov", function(error, response, body) {
+            if (error) {
+                console.log(error);
+            } else {
+                res.send(response);
+            };
+        });
+    });*/
+
     app.get('/api/mysql', function(req, res) {
         connection.query('SELECT * FROM fireballCSV LIMIT 25', function(error, results) {
             if (error) {
