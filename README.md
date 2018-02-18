@@ -1,5 +1,6 @@
 # Two-Servers
 
+<<<<<<< HEAD
 
 ![screenshot](screenshot1.png)
 
@@ -35,3 +36,4 @@ The approximate total radiated energy in the atmosphere in Joules [a unit of ene
 
 # **Calculated Total Impact Energy (kt)**
 The impact energy of the event in kilotons of TNT (kt) computed from an empirical expression relating radiated and impact energy (see the Introduction for more details).
+
