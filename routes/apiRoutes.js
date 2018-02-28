@@ -10,12 +10,30 @@ module.exports = function(app) {
 
 const connection = require("../connection");
 
-    app.get("/api", function(req, res) {
+    app.get("/fireball", function(req, res) {
         request("https://ssd-api.jpl.nasa.gov/fireball.api", function(error, response, body) {
             if (error) {
                 console.log(error);
             } else {
-                res.send(response);
+                res.send(response)
+            };
+        });
+    });
+
+
+    app.get("/asteroid", function(req, res) {
+        request("https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=DEMO_KEY", function(error, response, body) {
+            if (error) {
+                console.log(error);
+            } else {
+                    res.send(response);
+/*                  res.send(response.body.near_earth_objects);
+                    res.send(response.near_earth_objects.name);
+                    res.send(response.near_earth_objects.nasa_jpl_url);
+                    res.send(response.near_earth_objects.absolute_magnitude_h);
+                    res.send(response.near_earth_objects.estimated_diameter);
+                    res.send(response.near_earth_objects.is_potentially_hazardous_asteroid);
+                    res.json(response.near_earth_objects.orbital_data);*/
             };
         });
     });
@@ -52,7 +70,7 @@ const connection = require("../connection");
         } else {
             console.log(result);
             console.log("Email submitted and updated: " + result.affectedRows + " affectedRows");
-            res.json("Thank you for signing up! Your email: " + email + "has been successfully added to database!");
+            res.json("Thank you for signing up! Your email: " + email + " has been successfully added to database!");
             };
         });
      });
