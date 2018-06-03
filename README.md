@@ -1,7 +1,5 @@
 # Two-Servers
 
-<<<<<<< HEAD
-
 ![screenshot](screenshot1.png)
 
 # **Instructions to Build an Express Application:**
